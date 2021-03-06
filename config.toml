@@ -1,6 +1,7 @@
-baseURL = "http://example.org/"
+baseURL = "https://graceofboy.github.io"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "graceofboy"
+publishDir = "docs"
 
 theme = "jeffprod"
 [permalinks]
