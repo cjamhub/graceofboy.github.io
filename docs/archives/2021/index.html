@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>graceofboy  | Tags</title>
+    <title>graceofboy  | 2021</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://graceofboy.github.io/css/blog.css" />
-    <link rel="alternate" type="application/rss+xml" href="https://graceofboy.github.io/tags/index.xml" title="graceofboy" />
+    <link rel="alternate" type="application/rss+xml" href="https://graceofboy.github.io/archives/2021/index.xml" title="graceofboy" />
     </head>
 <body>
 
@@ -29,7 +29,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #Tags
+                        Archive 2021
                     
                 </h1>
                 
@@ -43,11 +43,31 @@
     
 
 
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/2021/shadowsocks%E9%85%8D%E5%90%88polipo%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">Shadowsocks配合polipo实现服务器科学上网</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at March 7, 2021 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p>shadowsocks 配合 polipo 实现服务器科学上网 shadowsocks 下载  参考：GitHub - shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust
+ apt install shadowsocks-libev brew install shadowsocks-libev 配置 这里需要在shadowsocks-libev/config.json配置vpn节点的信息。
+vim /etc/shadowsocks-libev/config.json /usr/local/etc/shadowsocks-libev.json 启动  主力要注意ss-local 和ss-server是两种不同的启动模式：
+ss-local 是配置shadowsocks去连VPN。
+ss-server 是配置shadowsocks成为一个代理服务器。
+具体细节可以参考: man ss-local, man ss-server
+ # 配置开机启动 sudo systemctl enable shadowsocks-libev-local@config # 启动 sudo systemctl start shadowsocks-libev-local@config # 查看状态 sudo systemctl status shadowsocks-libev-local@config polipo shadowsocks的ss-local是基于socks5协议的代理服务，为了方便日常使用，可以通过polipo做一层转发，将socks5转成http和https以及ftp等协议。
+下载 sudo apt install polipo brew install polipo 配置 vim /etc/polipo/config proxyAddress = &quot;0....</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
 
             </div>
         </div>
@@ -84,6 +104,7 @@
 
     </div>
 </div>
+
 
 
     </div>

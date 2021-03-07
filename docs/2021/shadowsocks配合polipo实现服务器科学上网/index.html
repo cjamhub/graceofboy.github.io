@@ -3,14 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>graceofboy  | Tags</title>
+    <title>graceofboy  | Shadowsocks配合polipo实现服务器科学上网</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://graceofboy.github.io/css/blog.css" />
-    <link rel="alternate" type="application/rss+xml" href="https://graceofboy.github.io/tags/index.xml" title="graceofboy" />
     </head>
 <body>
 
@@ -29,7 +28,7 @@
                 <br>
                 <h1 class="title is-size-1">
                     
-                        #Tags
+                        Shadowsocks配合polipo实现服务器科学上网
                     
                 </h1>
                 
@@ -42,13 +41,74 @@
     <div class="section">
     
 
-
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                <h1 id="shadowsocks-配合-polipo-实现服务器科学上网">shadowsocks 配合 polipo 实现服务器科学上网</h1>
+<h2 id="shadowsocks">shadowsocks</h2>
+<h3 id="下载">下载</h3>
+<blockquote>
+<p>参考：<a href="https://github.com/shadowsocks/shadowsocks-libev">GitHub - shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust</a></p>
+</blockquote>
+<pre><code class="language-Linux" data-lang="Linux">apt install shadowsocks-libev
+</code></pre><pre><code class="language-Mac" data-lang="Mac">brew install shadowsocks-libev
+</code></pre><h3 id="配置">配置</h3>
+<p>这里需要在shadowsocks-libev/config.json配置vpn节点的信息。</p>
+<pre><code class="language-Linux" data-lang="Linux">vim /etc/shadowsocks-libev/config.json
+</code></pre><pre><code class="language-Mac" data-lang="Mac">/usr/local/etc/shadowsocks-libev.json
+</code></pre><h3 id="启动">启动</h3>
+<blockquote>
+<p>主力要注意ss-local 和ss-server是两种不同的启动模式：<br>
+ss-local 是配置shadowsocks去连VPN。<br>
+ss-server 是配置shadowsocks成为一个代理服务器。<br>
+具体细节可以参考: man ss-local, man ss-server</p>
+</blockquote>
+<pre><code class="language-Linux" data-lang="Linux"># 配置开机启动
+sudo systemctl enable shadowsocks-libev-local@config
 
+# 启动
+sudo systemctl start shadowsocks-libev-local@config
+
+# 查看状态
+sudo systemctl status shadowsocks-libev-local@config
+</code></pre><h2 id="polipo">polipo</h2>
+<p>shadowsocks的ss-local是基于socks5协议的代理服务，为了方便日常使用，可以通过polipo做一层转发，将socks5转成http和https以及ftp等协议。</p>
+<h3 id="下载-1">下载</h3>
+<pre><code class="language-Linux" data-lang="Linux">sudo apt install polipo
+</code></pre><pre><code class="language-Mac" data-lang="Mac">brew install polipo
+</code></pre><h3 id="配置-1">配置</h3>
+<pre><code class="language-Linux" data-lang="Linux">vim /etc/polipo/config
+
+proxyAddress = &quot;0.0.0.0&quot;
+socksParentProxy = &quot;127.0.0.1:1080&quot;
+socksProxyType = socks5
+proxyPort = 8123
+</code></pre><h3 id="启动-1">启动</h3>
+<pre><code># 启动
+sudo systemctl start polipo
+
+# 查看状态
+sudo systemctl status polipo
+</code></pre><h2 id="如何使用代理">如何使用代理</h2>
+<h3 id="直接使用">直接使用</h3>
+<pre><code>export http_proxy=&quot;http://127.0.0.1:8123&quot;
+export https_proxy=&quot;http://127.0.0.1:8123&quot;
+export ftp_proxy=&quot;http://127.0.0.1:8123&quot;
+</code></pre><h3 id="配置zshrc">配置zshrc</h3>
+<pre><code>function setproxy(){
+	export http_proxy=http://127.0.0.1:8123;
+	export https_proxy=http://127.0.0.1:8123;
+	export ftp_proxy=http://127.0.0.1:8123;
+}
+function unsetproxy(){
+	unset http_proxy
+	unset https_proxy
+	unset ftp_proxy
+}
+</code></pre><h2 id="测试">测试</h2>
+<pre><code>curl www.google.com
+</code></pre>
             </div>
         </div>
     </div>
@@ -73,6 +133,11 @@
     </div>
 </div>
     <br>
+                
+
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>

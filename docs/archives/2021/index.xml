@@ -1,0 +1,30 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2021 on graceofboy</title>
+    <link>https://graceofboy.github.io/archives/2021/</link>
+    <description>Recent content in 2021 on graceofboy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Mar 2021 17:13:53 +0800</lastBuildDate>
+    
+        <atom:link href="https://graceofboy.github.io/archives/2021/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shadowsocks配合polipo实现服务器科学上网</title>
+      <link>https://graceofboy.github.io/2021/shadowsocks%E9%85%8D%E5%90%88polipo%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link>
+      <pubDate>Sun, 07 Mar 2021 17:13:53 +0800</pubDate>
+      
+      <guid>https://graceofboy.github.io/2021/shadowsocks%E9%85%8D%E5%90%88polipo%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</guid>
+      <description>shadowsocks 配合 polipo 实现服务器科学上网 shadowsocks 下载  参考：GitHub - shadowsocks/shadowsocks-libev: Bug-fix-only libev port of shadowsocks. Future development moved to shadowsocks-rust
+ apt install shadowsocks-libev brew install shadowsocks-libev 配置 这里需要在shadowsocks-libev/config.json配置vpn节点的信息。
+vim /etc/shadowsocks-libev/config.json /usr/local/etc/shadowsocks-libev.json 启动  主力要注意ss-local 和ss-server是两种不同的启动模式：
+ss-local 是配置shadowsocks去连VPN。
+ss-server 是配置shadowsocks成为一个代理服务器。
+具体细节可以参考: man ss-local, man ss-server
+ # 配置开机启动 sudo systemctl enable shadowsocks-libev-local@config # 启动 sudo systemctl start shadowsocks-libev-local@config # 查看状态 sudo systemctl status shadowsocks-libev-local@config polipo shadowsocks的ss-local是基于socks5协议的代理服务，为了方便日常使用，可以通过polipo做一层转发，将socks5转成http和https以及ftp等协议。
+下载 sudo apt install polipo brew install polipo 配置 vim /etc/polipo/config proxyAddress = &amp;quot;0.</description>
+    </item>
+    
+  </channel>
+</rss>
