@@ -2,6 +2,7 @@ baseURL = "https://graceofboy.github.io"
 languageCode = "en-us"
 title = "graceofboy"
 publishDir = "docs"
+summaryLength = 10
 
 theme = "jeffprod"
 [permalinks]
