@@ -2,8 +2,8 @@
 title: "Deep Work"
 date: 2021-04-02T09:12:30+08:00
 archives: "2021"
-tags: [method]
-author: John SMITH
+tags: ["method"]
+author: Jam
 ---
 
 # 践行「Deep Work」反馈
