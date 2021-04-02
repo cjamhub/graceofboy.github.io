@@ -5,10 +5,20 @@
     <description>Recent content in Posts on graceofboy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Mar 2021 17:13:53 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Apr 2021 09:12:30 +0800</lastBuildDate>
     
         <atom:link href="https://graceofboy.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deep Work</title>
+      <link>https://graceofboy.github.io/2021/deepwork/</link>
+      <pubDate>Fri, 02 Apr 2021 09:12:30 +0800</pubDate>
+      
+      <guid>https://graceofboy.github.io/2021/deepwork/</guid>
+      <description>践行「Deep Work」反馈  深度思考是需要有一定架构的
+ 我应该怎样培养我进入深度工作的习惯？ 穿好衣服整理好形象、补充好糖分（或者准备一杯咖啡）、端坐在座位上、做好冥想调动起5种感官，进入一种轻松又富有洞察力的状态开始工作。</description>
+    </item>
     
     <item>
       <title>Shadowsocks配合polipo实现服务器科学上网</title>
